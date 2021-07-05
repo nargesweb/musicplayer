@@ -1,0 +1,269 @@
+// font family import 
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500&display=swap');
+
+ 
+@import "./varibles";
+@import "./mixins";
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: $firstcolor;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    
+    .wrapper{
+        position: absolute;
+        position: relative;
+        overflow: hidden;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 380px;
+        height: 700px;
+        padding: 25px 30px;
+        background: $firstcolor;
+        box-shadow:  5px 5px 10px #212326,
+             -5px -5px 10px #2b2d30;
+        border-radius: $rounded;
+
+        i{
+            cursor: pointer;
+        }
+    }
+}
+.top-menu{
+    @include flex-box;
+    
+    i{
+     
+        font-size: $i-font;
+        color: $lightblack;
+        @include button (8px);
+    }
+    span{
+        font-size: $l-font;
+        color: $lightblack;
+    }
+}
+.image-erea{
+    width: 80%;
+    height: 260px;
+    margin: 25px auto;
+    overflow: hidden;
+    border-radius: 50%;
+    position: relative;
+    background: linear-gradient(145deg, #222427, #292b2e);
+    box-shadow:  7px 7px 17px #1e2022,
+             -7px -7px 17px #2e3034;
+    
+    
+    img{
+        width: 90%;
+        height: 90%;
+        position: absolute;
+        border-radius: inherit;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        object-fit: fill;
+
+    }
+}
+.song-details{
+    
+    width: 100%;
+    height:55px;
+    text-overflow: ellipsis;
+    text-align: center;
+    margin: 10px 0;
+    margin-top: 30px;
+
+    .name{
+        font-size: 21px;
+        color: #fff;
+        
+    }
+    .artist{
+        font-size: 15px;
+        opacity: 0.5;
+        color: $lightblack;
+    }
+}
+.more-icon{
+    @include flex-box;
+    margin: 60px 0 0 0;
+    i{
+        color: $lightblack;
+        font-size: 24px;
+    
+    }
+}
+.progress-area{
+    width: 100%;
+    height: 3px;
+    margin: 30px 0 0 0;
+    border-radius: 50px;
+    background: $shadowlight;
+    &:hover {
+        cursor: pointer;
+    }
+    &:hover .progress-bar::before{
+        opacity: 1;
+        
+    }
+    .progress-bar{
+        position: relative;
+        height: inherit;
+        width: 0%;
+        background-color: #0e59bc;
+        border-radius: inherit;
+        transition: all 0.3 ease;
+        
+        &::before{
+            content: " ";
+            position: absolute;
+            background-color: $whit;
+            width: 10px ;
+            height: 10px;
+            border-radius: inherit;
+            top: 50%;
+            right: -5px;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: apacity 0.3s ease;
+        }
+    }
+}
+.timer{
+    @include flex-box;
+    color: $lightblack;
+    font-size: 12px;
+    opacity: 0.8;
+    margin: 5px 0;
+    
+}
+.controls{
+    @include flex-box;
+    margin: 30px 0 5px ;
+    i{
+        color: $lightblack;
+        @include button (8px);
+    }
+    .play-pause i{
+        background: linear-gradient(145deg, #0e59bc, #116ae0);
+
+        box-shadow:  7px 7px 17px #1e2022,
+             -7px -7px 17px #2e3034;
+             border-radius: 50%;
+        padding: 12px;
+        color: #fff;
+
+    }
+}
+
+.music-list{
+    position: absolute;
+    left: -300px;
+    top: 85px;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    width: 100%;
+    height: 500px;
+
+    background-color: rgba($color: $shadowDark, $alpha: 0.99);
+    padding: 15px 30px;
+    border-top: 0.5px solid $shadowlight;
+    border-bottom: 0.5px solid $shadowlight;
+    transition: all 0.14s ease-out;
+    // use this show class in js 
+    .header{
+        @include flex-box;
+        padding: 5px 0 ;
+        
+        #close{
+            color: $lightblack;
+            font-size: 22px;
+        }
+        .row{
+            display: flex;
+            align-items: center;
+            font-size: 19px;
+            span{
+                color: $lightblack;
+                margin-left: 5px;
+            }
+            i{
+                cursor: default;
+                color: $lightblack;
+            }
+        }
+    }
+    li{
+        @include flex-box;
+    }
+
+    ul{
+        margin: 15px 0;
+        max-height: 500px;
+        overflow-y: auto;
+        
+        .playing{
+            color: #116ae0;
+            pointer-events: none;
+        }
+        &::-webkit-scrollbar{
+            width: 0px;
+        }
+
+        li{
+             list-style: none;
+             padding-bottom: 10px;
+             margin-bottom: 5px;
+             color: $lightblack;
+             border-bottom: 1px solid $lightblack;
+
+             &:last-child{
+                 border-bottom: 0;
+             }
+
+             .row span{
+                 font-weight: 500;
+                 font-size: 17px;
+             }
+
+             .row p{
+                 font-weight: 300;
+                 font-size: 15px;
+                 opacity: 0.9;
+             }
+             .audio-duration{
+                 font-size: 15px;
+             }
+             
+        }
+    }
+}
+
+@keyframes slow{
+    0%{
+        box-shadow:  0px 0px 5px #fdfeffab;
+
+    }
+    50%{
+        box-shadow:  0px 0px 15px #1a457eab;
+    }
+    75%{
+        box-shadow:  0px 0px 25px #09408894;
+    }
+    100%{
+        box-shadow:  0px 0px 15px #1a457eab;
+    }
+}
+

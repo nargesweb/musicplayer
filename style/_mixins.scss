@@ -1,0 +1,15 @@
+@mixin flex-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@mixin button ($padding){
+    padding: $padding;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #222427, #292b2e);
+    box-shadow:  7px 7px 17px #1e2022,
+             -7px -7px 17px #2e3034;
+    &:hover{
+        color: #0e59bc;
+    }
+}
