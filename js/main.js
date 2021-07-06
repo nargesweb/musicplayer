@@ -58,7 +58,7 @@ function nextMusic() {
     musicIndex > allMusic.length ? musicIndex = 1 : musicIndex = musicIndex;
     loadMusic(musicIndex);
     playMusic();
-
+    playingNow()
 
 }
 
@@ -68,12 +68,14 @@ function prevMusic() {
     musicIndex < 1 ? musicIndex = allMusic.length : musicIndex = musicIndex;
     loadMusic(musicIndex);
     playMusic();
+    playingNow()
 }
 
 // play or music btn event 
 playPauseBtn.addEventListener("click", () => {
     const isMusicPaused = wrapper.classList.contains("paused");
     isMusicPaused ? pauseMusic() : playMusic();
+    playingNow()
 });
 
 // next music event 
