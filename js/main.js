@@ -181,7 +181,7 @@ closeMusicsBtn.addEventListener("click", () => {
 
 const ulTag = document.querySelector("ul");
 
-for(let i=0 ;i < allMusic.length ; i++){
+for(let i=0 ;i < allMusic.length; i++){
     let liTag =`<li li-index = "${i + 1}">
                     <div class="row">
                         <span>${allMusic[i].name}</span>
@@ -192,11 +192,11 @@ for(let i=0 ;i < allMusic.length ; i++){
                 </li>
     `;
     ulTag.insertAdjacentHTML("beforeend" , liTag );
-
+    
 }
 
 const allLiTag = ulTag.querySelectorAll("li");
-
+allLiTag.style= "cursor : pointer";
 function playingNow(){
     for(let j=0 ; j < allLiTag.length ; j++){
 

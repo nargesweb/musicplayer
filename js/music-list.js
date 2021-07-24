@@ -16,6 +16,18 @@ let allMusic =[
         artist:"Ariana-Grande",
         image:"ariana 7rings.png",
         src:"Ariana-Grande-7-Rings-320",
+    }
+    , {
+        name: "Eshgho Gonah",
+        artist: "Reza Bahram",
+        image: "114621327_500.jpg",
+        src: "Reza Bahram - Eshgho Gonah (320)",
+    }
+    , {
+        name: "Havaye-Del",
+        artist: "Reza Bahram",
+        image: "114624148_500.jpg",
+        src: "Reza-Bahram -Havaye-Del",
     },
     {
         name:"Bon bon",
@@ -46,5 +58,11 @@ let allMusic =[
         artist:"Sofia Reyes-Jason Derulo-DeLa Ghetto",
         image:"music-1.jpg",
         src:"Sofia-Reyes-Jason-Derulo-De-La-Ghetto-1-2-3",
+    },
+    {
+        name: "name",
+        artist: "artist",
+        image: "music-1.jpg",
+        src: "src",
     }
 ]

@@ -7,6 +7,7 @@
 }
 
 body {
+  cursor: default;
   background: #26282b;
   position: relative;
   width: 100vw;
